@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>our work</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    ul.switcher {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    ul li {
+      padding: 10px 30px;
+      background-color: #ddd;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    ul li.active,
+    ul li:hover {
+      background-color: crimson;
+      color: white;
+    }
+
+    .gallery {
+      margin: 20px auto;
+      width: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    img {
+      width: 180px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="switcher">
+    <li class="active" data-cat="all">all work</li>
+    <li data-cat="web">web</li>
+    <li data-cat="gfx">graphic</li>
+    <li data-cat="marketing">marketing</li>
+  </ul>
+  <div class="gallery">
+    <img class="all web" src="https://placehold.co/400/orange/white?text=web" alt="">
+    <img class="all marketing" src="https://placehold.co/400/orange/white?text=marketing" alt="">
+    <img class="all web" src="https://placehold.co/400/orange/white?text=web" alt="">
+    <img class="all gfx" src="https://placehold.co/400/orange/white?text=graphic" alt="">
+    <img class="all gfx" src="https://placehold.co/400/orange/white?text=graphic" alt="">
+    <img class="all marketing" src="https://placehold.co/400/orange/white?text=marketing" alt="">
+    <img class="all web" src="https://placehold.co/400/orange/white?text=web" alt="">
+    <img class="all marketing" src="https://placehold.co/400/orange/white?text=marketing" alt="">
+    <img class="all web" src="https://placehold.co/400/orange/white?text=web" alt="">
+    <img class="all gfx" src="https://placehold.co/400/orange/white?text=graphic" alt="">
+  </div>
+  <script>
+    let sw = document.querySelectorAll(".switcher li");
+    let ga = document.querySelectorAll(".gallery img");
+
+    sw.forEach((el) => {
+      el.addEventListener("click", (even) => {
+        sw.forEach((el) => {
+          el.classList.remove("active")
+        })
+        even.currentTarget.classList.add('active');
+        ga.forEach((elo) => {
+          if (elo.classList.contains(even.currentTarget.dataset.cat)) {
+            elo.style.display = "block";
+          } else {
+            elo.style.display = "none";
+          }
+        })
+      })
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>

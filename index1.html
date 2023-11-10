@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تاثير ملئ النص</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .fill {
+      position: relative;
+      width: fit-content;
+      margin: 50px auto !important;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      -webkit-text-stroke: 1px #333;
+      -webkit-text-fill-color: white;
+      transition: 0.3s;
+    }
+
+    .fill::before {
+      content: attr(data-text);
+      position: absolute;
+      width: 0;
+      top: 0;
+      left: 0;
+      -webkit-text-fill-color: #ff5722;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+
+    .fill:hover::before {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="fill" data-text="Amen">Amen</h2>
+</body>
+
+</html>

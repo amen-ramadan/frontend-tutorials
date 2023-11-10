@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background: #f2f3f5;
+      padding: 20px;
+      margin: 20px auto;
+      color: #000;
+      border-radius: 4px;
+      width: 100px;
+      text-align: center;
+      height: 20px;
+    }
+
+    span {
+      background-color: #ff6749;
+      color: white;
+      width: fit-content;
+      border-radius: 4px;
+      display: block;
+      padding: 10px 20px;
+      margin: 10px auto;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="serial"></div>
+  <span class="generate">generate</span>
+
+  <script>
+    let ser = document.querySelector(".serial");
+    let gen = document.querySelector(".generate");
+    let num = 10;
+    let char = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+    gen.onclick = () => {
+      let em = "";
+      for (let i = 0; i <= num; i++) {
+        em += char[Math.floor(Math.random() * char.length)];
+      }
+      console.log(em);
+      ser.innerHTML = em;
+    }
+  </script>
+</body>
+
+</html>

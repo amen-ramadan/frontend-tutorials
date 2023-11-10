@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fill With Characters</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    input {
+      padding: 15px;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #d7d7d7;
+      background-color: #f8f8f8;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .progress {
+      background-color: #2196f3;
+      height: 2px;
+      width: 0%;
+      display: block;
+      position: relative;
+      top: -2px;
+      transition: .5s;
+    }
+
+    .count {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      padding: 5px;
+      color: rgb(139, 78, 139);
+      font-weight: bold;
+    }
+
+    .zero {
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="">
+    <div>
+      <input type="text" placeholder="your user name" maxlength="20">
+      <span class="progress"></span>
+      <span class="count"></span>
+    </div>
+  </form>
+  <script>
+    let input = document.querySelector('input');
+    let progress = document.querySelector('.progress');
+    let count = document.querySelector('.count');
+    let max = input.getAttribute("maxlength");
+
+    count.innerHTML = max;
+    input.oninput = function () {
+      count.innerHTML = max - this.value.length;
+      this.value.length == max ? count.classList.add("zero") : count.classList.remove("zero");
+      progress.style.width = `${(this.value.length * 100) / max}%`;
+      console.log((this.value.length * 100) / max);
+    }
+  </script>
+</body>
+
+</html>

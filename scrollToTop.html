@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scroll to top</title>
+  <style>
+    body {
+      height: 5000px;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+
+
+    .up {
+      position: fixed;
+      /* Fixed/sticky position */
+      right: -40px;
+      bottom: 20px;
+      padding: 10px;
+      background-color: steelblue;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .up.show {
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="up">up</span>
+  <script>
+    let up = document.querySelector(".up");
+    window.onscroll = () => {
+      console.log(this.scrollY);
+      this.scrollY >= 1000 ? up.classList.add("show") : up.classList.remove("show");
+    };
+    up.onclick = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+</body>
+
+</html>

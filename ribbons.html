@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عمل ribbons بدون صور</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    div {
+      background-color: #d0d0d0;
+      text-align: center;
+      width: 500px;
+      padding: 20px;
+      margin: 100px auto;
+
+    }
+
+    h2 {
+      display: block;
+      position: relative;
+      background-color: #00695c;
+      color: white;
+      line-height: 1.6;
+      height: 40px;
+      width: calc(100% + 80px);
+      transform: translateX(-40px);
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      border-width: 11px;
+      border-style: solid;
+      border-color: #00695c #00695c transparent transparent;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      right: 0;
+      border-width: 11px;
+      border-style: solid;
+      border-color: #00695c transparent transparent #00695c;
+    }
+
+    p {
+      line-height: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h2>Mohamed Amen Ramadan</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eligendi vel incidunt eius labore dolorem
+      laboriosam aspernatur, a enim itaque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
+      molestiae cumque, maiores dolorem rem sapiente numquam quas eaque, quasi eos quae dolor atque aperiam. Accusantium
+      officiis dicta nemo molestiae beatae!</p>
+  </div>
+</body>
+
+</html>

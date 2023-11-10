@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>widthChangAtScroll</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(1) {
+      background-color: #aaa;
+    }
+
+    section:nth-child(2) {
+      background-color: #bbb;
+    }
+
+    section:nth-child(3) {
+      background-color: #ccc;
+    }
+
+    section:nth-child(4) {
+      background-color: #ddd;
+    }
+
+    .progress {
+      position: relative;
+      width: 500px;
+      height: 30px;
+      background-color: white;
+      margin: 10px;
+    }
+
+    .progress span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: indianred;
+      transition: width 0.3s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="one">section one</section>
+  <section class="two">section two</section>
+  <section class="three">
+    <div class="skills">
+      <h3>html</h3>
+      <div class="progress">
+        <span style="width: 0;" data-width="80%"></span>
+      </div>
+      <h3>css</h3>
+      <div class="progress">
+        <span style="width: 0;" data-width="90%"></span>
+      </div>
+      <h3>scala</h3>
+      <div class="progress">
+        <span style="width: 0;" data-width="50%"></span>
+      </div>
+    </div>
+  </section>
+  <section class="four">section four</section>
+  <script>
+    let section = document.querySelector('.three');
+    let spans = document.querySelectorAll(".progress span");
+
+    window.onscroll = function () {
+      if (window.scrollY >= section.offsetTop - 150) {
+        spans.forEach(function (span) {
+          span.style.width = span.dataset.width;
+        })
+      }
+    }
+  </script>
+</body>
+
+</html>

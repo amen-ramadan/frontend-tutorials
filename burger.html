@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>burger</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .icon {
+      margin: 20px auto;
+      width: 20px;
+      height: 14px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    span {
+      background-color: black;
+      height: 2px;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      transition: all .3s ease;
+    }
+
+    .icon span:first-child {
+      top: 0;
+    }
+
+    .icon span:nth-child(2) {
+      top: 6px;
+    }
+
+    .icon span:nth-child(3) {
+      top: 12px;
+    }
+
+    .icon:hover span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .icon:hover span:first-child,
+    .icon:hover span:last-child {
+      background-color: red;
+      top: 6px;
+    }
+
+    .icon:hover span:first-child {
+      transform: rotate(45deg);
+    }
+
+    .icon:hover span:last-child {
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="icon">
+    <span></span><span></span><span></span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خلفية مائلة</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .page {
+      height: 100vh;
+    }
+
+    .page::before {
+      content: "";
+      background-color: #fbc02d;
+      position: fixed;
+      width: 300%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) skew(0, -10deg);
+      border-radius: 50%;
+      z-index: -1;
+      animation: waving 10s ease-in-out infinite alternate;
+    }
+
+    .card {
+      width: 300px;
+      padding: 20px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: white;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #ddd inset;
+    }
+
+    .card img {
+      min-width: 100%;
+      border-radius: 6px;
+    }
+
+    .card h2 {
+      margin: 0;
+      line-height: 2;
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    @keyframes waving {
+      form {
+        transform: translateX(-50%) skew(0, -10deg);
+      }
+
+      to {
+        transform: translateX(-30%) skew(10deg, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="card">
+      <img src="https://placehold.co/200x300/orange/white?text=marketing" alt="">
+      <h2>card title</h2>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</body>
+
+</html>

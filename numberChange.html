@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>numberChange</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(1) {
+      background-color: #aaa;
+    }
+
+    section:nth-child(2) {
+      background-color: #bbb;
+    }
+
+    section:nth-child(3) {
+      background-color: #ccc;
+    }
+
+    section:nth-child(4) {
+      background-color: #ddd;
+    }
+
+    .nums {
+      width: 400px;
+      display: flex;
+    }
+
+    .nums .num {
+      font: 1px;
+      text-align: center;
+      font-size: 40px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="sec1">section one</section>
+  <section class="sec2">section two</section>
+  <section class="sec3">
+    <div class="nums">
+      <div class="num" data-goal="100">0</div>
+      <div class="num" data-goal="500">0</div>
+      <div class="num" data-goal="300">0</div>
+    </div>
+  </section>
+  <section class="sec4">section four</section>
+  <script>
+    let nums = document.querySelectorAll(".nums .num");
+    let sec = document.querySelector(".three");
+    let started = false; // function started ? no
+
+    nums.forEach((num) => startCount(num));
+
+    window.onscroll = function () {
+      if (window.scrollY >= startCount) {
+        if (!started) {
+          nums.forEach((num) => startCount(num));
+        }
+        started = true;
+      }
+    }
+
+    function startCount(el) {
+      let goal = el.dataset.goal;
+      let count = setInterval(() => {
+        el.textContent++;
+        if (el.textContent == goal) {
+          clearInterval(count);
+        }
+      }, 2000 / goal);
+    }
+
+    startCount(nums);
+  </script>
+</body>
+
+</html>

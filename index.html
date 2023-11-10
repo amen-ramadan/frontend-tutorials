@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تاثير انتقال النص من اليمين الى اليسار</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+    }
+
+    .link {
+      text-decoration: none;
+      text-align: center;
+      line-height: 36px;
+      position: relative;
+      display: block;
+      border: 2px solid #8bc34a;
+      width: 160px;
+      height: 40px;
+      margin: 20px auto;
+      color: #8bc34a;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    span {
+      display: block;
+      transition: 0.3s;
+    }
+
+    .link::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(-100%);
+      transition: 0.3s;
+    }
+
+    .link:hover span {
+      transform: translateX(100%);
+    }
+
+    .link:hover::before {
+      transform: translateX(0%);
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#" class="link" data-text="Amen Elzero">
+    <span>Amen Elzero</span>
+  </a>
+
+</body>
+
+</html>
